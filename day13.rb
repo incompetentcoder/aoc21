@@ -11,19 +11,7 @@ end
 eh.each do |x|
   z=x[1].to_i
   b.transform_keys! do |y|
-    if x[0]=="y"
-      if y[1] > z
-        [y[0],z-(y[1]-z)]
-      else
-        y
-      end
-    else
-      if y[0] > z
-        [z-(y[0]-z),y[1]]
-      else
-        y
-      end
-    end
+    x[0]=="y" ? (y[1]>z ? [y[0],z-(y[1]-z)] : y) : (y[0] > z ? [z-(y[0]-z),y[1]] : y)
   end
   pp b.length
 end
